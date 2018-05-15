@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Timer">
-
+    tools:context=".TimerActivity">
 
     <TextView
         android:id="@+id/timer_text"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        android:text="TextView" />
+        tools:text="00:01:42" />
 
     <Button
         android:id="@+id/button_start"
@@ -25,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="104dp"
-        android:text=" Start " />
+        android:text="@string/start_button" />
 
     <Button
         android:id="@+id/button_stop"
@@ -35,7 +33,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="188dp"
-        android:text=" Stop " />
+        android:text="@string/stop_button" />
 
     <Button
         android:id="@+id/button_resume"
@@ -45,5 +43,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="208dp"
-        android:text="Resume" />
+        android:text="@string/resume_button" />
 </RelativeLayout>

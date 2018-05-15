@@ -1,33 +1,31 @@
 package com.aavdeev.capitalandproglang;
 
-
 import android.app.Activity;
 import android.app.ListFragment;
-import android.content.Context;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class CapitalListFragment extends ListFragment {
 
-interface CapitalListListener{
-    void itemClicked(long id);
-}
+    interface CapitalListListener {
+        void itemClicked(long id);
+    }
 
+    @Nullable
     private CapitalListListener listener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        String[] names = new String[Capital.listCapital.length];
-        for (int i = 0; i<names.length; i++) {
-            names[i] = Capital.listCapital[i].getName();
+        String[] names = new String[Capital.CAPITALS.length];
+        for (int i = 0; i < names.length; i++) {
+            names[i] = Capital.CAPITALS[i].getName();
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(inflater.getContext(),
@@ -40,7 +38,12 @@ interface CapitalListListener{
     @Override
     public void onAttach(Activity context) {
         super.onAttach(context);
-        listener = (CapitalListListener) context;
+        try {
+            listener = (CapitalListListener) context;
+        } catch (ClassCastException cce) {
+            throw new RuntimeException("Host should implement "
+                    + CapitalListListener.class.getSimpleName(), cce);
+        }
     }
 
     @Override
@@ -48,6 +51,5 @@ interface CapitalListListener{
         if (listener != null) {
             listener.itemClicked(id);
         }
-
     }
 }

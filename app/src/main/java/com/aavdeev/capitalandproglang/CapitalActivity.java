@@ -18,16 +18,17 @@ public class CapitalActivity extends Activity implements CapitalListFragment.Cap
     public void itemClicked(long id) {
         View container = findViewById(R.id.container_capital_description);
         if (container != null) {
-            CapitalDescriptionFragment description = new CapitalDescriptionFragment();
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            description.setCapitalID(id);
-            ft.replace(R.id.container_capital_description, description);
-            ft.addToBackStack(null);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commit();
+            CapitalDescriptionFragment descriptionFragment = new CapitalDescriptionFragment();
+            descriptionFragment.setCapitalId(id);
+
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.container_capital_description, descriptionFragment)
+                    .addToBackStack(null)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .commit();
         } else {
             Intent intent = new Intent(CapitalActivity.this, CapitalDescriptionActivity.class);
-            intent.putExtra(CapitalDescriptionActivity.NAME_CAPITAL, (int) id);
+            intent.putExtra(CapitalDescriptionActivity.CAPITAL_ID_KEY, (int) id);
             startActivity(intent);
         }
     }

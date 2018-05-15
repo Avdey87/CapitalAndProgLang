@@ -7,24 +7,24 @@ import android.widget.TextView;
 
 public class LangDescriptionActivity extends Activity {
 
-    public static final String LANG_DESCRIPTION = "description";
+    public static final String LANG_DESCRIPTION_KEY = "description";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lang_description);
 
-        int des = (int) getIntent().getExtras().get(LANG_DESCRIPTION);
-        ProgLang list = ProgLang.listLang[des];
+        int descriptionId = getIntent().getIntExtra(LANG_DESCRIPTION_KEY, -1);
+        ProgLang language = ProgLang.LANGUAGES[descriptionId];
 
-        ImageView langPhoto = findViewById(R.id.photo_lang);
-        langPhoto.setImageResource(list.getId());
-        langPhoto.setContentDescription(list.getName());
+        ImageView langPhotoView = findViewById(R.id.photo_lang);
+        langPhotoView.setImageResource(language.getId());
+        langPhotoView.setContentDescription(language.getName());
 
-        TextView name = findViewById(R.id.name_lang);
-        name.setText(list.getName());
+        TextView nameView = findViewById(R.id.name_lang);
+        nameView.setText(language.getName());
 
-        TextView description = findViewById(R.id.description_lang);
-        description.setText(list.getDescriptoin());
+        TextView descriptionView = findViewById(R.id.description_lang);
+        descriptionView.setText(language.getDescription());
     }
 }

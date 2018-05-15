@@ -3,14 +3,22 @@ package com.aavdeev.capitalandproglang;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
-public class Timer extends Activity {
+public class TimerActivity extends Activity {
 
-    private static int seconds = 0;
-    private boolean running;
+    private static final String IS_RUNNING_KEY = "running";
+    private static final String WAS_RUNNING_LEY = "wasRunning";
+    private static final String SECONDS_KEY = "seconds";
+
+    // is static by intention?
+    private int seconds = 0;
+    private boolean isRunning;
     private boolean wasRunning;
+
+    private TextView timerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +26,18 @@ public class Timer extends Activity {
         setContentView(R.layout.activity_timer);
 
         if (savedInstanceState != null) {
-            seconds = savedInstanceState.getInt("seconds");
-            running = savedInstanceState.getBoolean("running");
-            wasRunning = savedInstanceState.getBoolean("wasRunning");
-
+            seconds = savedInstanceState.getInt(SECONDS_KEY);
+            isRunning = savedInstanceState.getBoolean(IS_RUNNING_KEY);
+            wasRunning = savedInstanceState.getBoolean(WAS_RUNNING_LEY);
         }
 
+        timerView = findViewById(R.id.timer_text);
 
         runTimer();
     }
 
     private void runTimer() {
-        final TextView timer_text = findViewById(R.id.timer_text);
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
+        timerView.post(new Runnable() {
             @Override
             public void run() {
                 int hour = seconds / 3600;
@@ -39,12 +45,12 @@ public class Timer extends Activity {
                 int sec = seconds % 60;
 
                 String time = String.format("%2d:%02d:%02d", hour, min, sec);
-                timer_text.setText(time);
+                timerView.setText(time);
 
-                if (running) {
+                if (isRunning) {
                     seconds++;
                 }
-                handler.postDelayed(this, 1000);
+                timerView.postDelayed(this, 1000);
 
             }
         });
@@ -53,37 +59,37 @@ public class Timer extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        wasRunning = running;
-        running = false;
+        wasRunning = isRunning;
+        isRunning = false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         if (wasRunning) {
-            wasRunning = running;
-            running = true;
+            wasRunning = isRunning;
+            isRunning = true;
         }
     }
 
     public void onClickStart(View view) {
-        running = true;
+        isRunning = true;
     }
 
     public void onClickStop(View view) {
-        running = false;
+        isRunning = false;
     }
 
     public void onClickResume(View view) {
-        running = false;
+        isRunning = false;
         seconds = 0;
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean("wasRunning", wasRunning);
-        outState.putBoolean("running", running);
-        outState.putInt("seconds", seconds);
+        outState.putBoolean(WAS_RUNNING_LEY, wasRunning);
+        outState.putBoolean(IS_RUNNING_KEY, isRunning);
+        outState.putInt(SECONDS_KEY, seconds);
     }
 }

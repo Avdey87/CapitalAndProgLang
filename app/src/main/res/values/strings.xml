@@ -2,7 +2,7 @@
     <string name="app_name">CapitalAndProgLang</string>
     <array name="option">
         <item>Capitals</item>
-        <item>Programming langues</item>
+        <item>Programming languages</item>
         <item>Timer</item>
         <item>Send to intent</item>
         <item>List Car</item>
@@ -13,5 +13,14 @@
         <item>GERMANY</item>
         <item>ITALY</item>
     </array>
+
+    <string name="start_button">Start</string>
+    <string name="stop_button">Stop</string>
+    <string name="resume_button">Resume</string>
+    <string name="hint_enter_text">Enter text</string>
+    <string name="button_send_to_activity">Send to activity</string>
+    <string name="button_send_intent">Send Intent</string>
+    <string name="label_view_brands">View brands</string>
+    <string name="send_to_type">Тип отправки</string>
 
 </resources>

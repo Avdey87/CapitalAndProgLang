@@ -5,15 +5,16 @@ import android.os.Bundle;
 
 public class CapitalDescriptionActivity extends Activity {
 
-    public static final String NAME_CAPITAL = "capitalID";
+    public static final String CAPITAL_ID_KEY = "capitalID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capital_description);
 
-        int capitalID = (int) getIntent().getExtras().get(NAME_CAPITAL);
-        CapitalDescriptionFragment descriptoin = (CapitalDescriptionFragment) getFragmentManager().findFragmentById(R.id.activity_capital_description);
-        descriptoin.setCapitalID(capitalID);
+        int capitalID = getIntent().getIntExtra(CAPITAL_ID_KEY, -1);
+        CapitalDescriptionFragment descriptionFragment = (CapitalDescriptionFragment)
+                getFragmentManager().findFragmentById(R.id.activity_capital_description);
+        descriptionFragment.setCapitalId(capitalID);
     }
 }

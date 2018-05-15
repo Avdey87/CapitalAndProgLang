@@ -6,25 +6,25 @@
     tools:context=".SendToIntentActivity">
 
     <EditText
-        android:id="@+id/edit_text"
+        android:id="@+id/text_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="73dp"
-        android:hint="Enter text"
+        android:hint="@string/hint_enter_text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/send_to_actyvity"
+        android:id="@+id/send_to_activity"
         android:onClick="onClickSendToActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="Send to activity" />
+        android:text="@string/button_send_to_activity" />
 
     <Button
         android:id="@+id/send_to_intent"
@@ -35,6 +35,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="126dp"
-        android:text="Send Intent" />
+        android:text="@string/button_send_intent" />
 
 </RelativeLayout>

@@ -15,20 +15,22 @@ public class SendToIntentActivity extends Activity {
     }
 
     public void onClickSendToActivity(View view) {
-        EditText editText = findViewById(R.id.edit_text);
-        String text = editText.getText().toString();
+        EditText inputView = findViewById(R.id.text_input);
+
+        String text = inputView.getText().toString();
         Intent intent = new Intent(SendToIntentActivity.this, MessageActivity.class);
-        intent.putExtra(MessageActivity.MESSAGE, text);
+        intent.putExtra(MessageActivity.MESSAGE_KEY, text);
         startActivity(intent);
     }
 
     public void onClickSendIntent(View view) {
-        EditText editText = findViewById(R.id.edit_text);
-        String text = editText.getText().toString();
+        EditText inputView = findViewById(R.id.text_input);
+
+        String text = inputView.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SEND);
-        Intent cng = Intent.createChooser(intent, "Тип отправки");
+        Intent sendIntent = Intent.createChooser(intent, getString(R.string.send_to_type));
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, text);
-        startActivity(cng);
+        startActivity(sendIntent);
     }
 }

@@ -3,15 +3,13 @@ package com.aavdeev.capitalandproglang;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class CarBrandActivity extends Activity {
-
-    private BrandCar brandList = new BrandCar();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +19,22 @@ public class CarBrandActivity extends Activity {
 
     public void onClickBrandCar(View view) {
 
-        TextView brands = findViewById(R.id.viewBrand);
-        Spinner country = findViewById(R.id.spiner_country);
-        String type = String.valueOf(country.getSelectedItem());
+        TextView brandsView = findViewById(R.id.viewBrand);
+        Spinner countryView = findViewById(R.id.spinner_country);
+        String typeView = String.valueOf(countryView.getSelectedItem());
 
-        List<String> car = brandList.getBrandCar(type);
-        StringBuilder stringBuilder = new StringBuilder();
+        List<String> cars = BrandsFactory.getCarBrands(typeView);
+        StringBuilder brandsContent = new StringBuilder();
 
-        for (String carList : car) {
-            stringBuilder.append(carList).append("\n");
+        Iterator<String> carIterator = cars.iterator();
+        while (carIterator.hasNext()) {
+            String carBrand = carIterator.next();
+            brandsContent.append(carBrand);
+            if (carIterator.hasNext()) {
+                brandsContent.append("\n");
+            }
         }
 
-        brands.setText(stringBuilder);
+        brandsView.setText(brandsContent);
     }
 }

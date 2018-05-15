@@ -8,15 +8,15 @@
 
   <TextView
       android:id="@+id/name_capital"
-      android:text=""
       android:textAppearance="?android:attr/textAppearanceLarge"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content" />
+      android:layout_height="wrap_content"
+      tools:text="Random text"/>
 
-    <TextView
-        android:id="@+id/description_capital"
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+  <TextView
+      android:id="@+id/description_capital"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="Just random text that won't be visible in runtime, but will be visible in editor" />
 
 </LinearLayout>

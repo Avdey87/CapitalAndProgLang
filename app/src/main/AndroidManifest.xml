@@ -12,19 +12,18 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".CapitalActivity" />
         <activity android:name=".CapitalDescriptionActivity" />
-        <activity android:name=".Timer" />
+        <activity android:name=".TimerActivity" />
         <activity android:name=".SendToIntentActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".ProgLangActivity" />
         <activity android:name=".LangListActivity" />
         <activity android:name=".LangDescriptionActivity" />
-        <activity android:name=".CarBrandActivity"></activity>
+        <activity android:name=".CarBrandActivity" />
     </application>
 
 </manifest>
