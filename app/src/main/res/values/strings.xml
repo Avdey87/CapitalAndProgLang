@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CapitalAndProgLang</string>
+    <array name="option">
+        <item>Capitals</item>
+        <item>Programming langues</item>
+        <item>Timer</item>
+        <item>Send to intent</item>
+        <item>List Car</item>
+    </array>
+
+    <array name="country">
+        <item>USA</item>
+        <item>GERMANY</item>
+        <item>ITALY</item>
+    </array>
+
+</resources>
