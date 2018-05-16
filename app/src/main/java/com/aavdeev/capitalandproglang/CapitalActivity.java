@@ -20,7 +20,6 @@ public class CapitalActivity extends Activity implements CapitalListFragment.Cap
         if (container != null) {
             CapitalDescriptionFragment descriptionFragment = new CapitalDescriptionFragment();
             descriptionFragment.setCapitalId(id);
-
             getFragmentManager().beginTransaction()
                     .replace(R.id.container_capital_description, descriptionFragment)
                     .addToBackStack(null)

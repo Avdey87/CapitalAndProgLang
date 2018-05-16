@@ -2,7 +2,6 @@ package com.aavdeev.capitalandproglang;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,7 @@ public class CapitalDescriptionFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         nameView = view.findViewById(R.id.name_capital);
         descriptionView = view.findViewById(R.id.description_capital);

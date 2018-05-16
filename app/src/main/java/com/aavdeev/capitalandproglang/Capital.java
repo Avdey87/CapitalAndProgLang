@@ -1,11 +1,11 @@
 package com.aavdeev.capitalandproglang;
 
-import android.support.annotation.NonNull;
+
 
 public class Capital {
-    @NonNull
+
     private final String name;
-    @NonNull
+
     private final String description;
 
     public static final Capital[] CAPITALS = {
@@ -14,17 +14,17 @@ public class Capital {
             new Capital("Париж", "Столица Франции Париж – один из главных европейских городов и мировой центр культуры, искусства, моды и гастрономии. В центральной части города, построенной в XIX веке, проходят широкие бульвары и протекает река Сена. Самые известные достопримечательности Парижа – Эйфелева башня и собор Парижской Богоматери в готическом стиле, возведенный в XII веке. Также город славится своими многочисленными кафе и бутиками с одеждой от известных модельеров на улице Фобур-Сент-Оноре.")
     };
 
-    public Capital(@NonNull String name, @NonNull String description) {
+    public Capital( String name,  String description) {
         this.name = name;
         this.description = description;
     }
 
-    @NonNull
+
     public String getName() {
         return name;
     }
 
-    @NonNull
+
     public String getDescription() {
         return description;
     }
