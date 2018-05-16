@@ -1,6 +1,6 @@
 package com.aavdeev.capitalandproglang;
 
-import android.support.annotation.NonNull;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,8 @@ public class BrandsFactory {
     private BrandsFactory() { }
 
     // since class has no fields, so it is stateless
-    @NonNull
-    static List<String> getCarBrands(@NonNull String country) {
+
+    static List<String> getCarBrands( String country) {
         List<String> brands = new ArrayList<>();
         switch (country) {
             case "USA":
